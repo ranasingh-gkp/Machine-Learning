@@ -1,0 +1,512 @@
+)
+plot(x$promotions, x$sales, las=2, main = "scatter plot of promotions and sales",xlab= "promotions", ylab= "sales",
+xlim= c(0,10), ylim=c(0,16))
+plot(x$promotions, x$sales, main = "scatter plot of promotions and sales",xlab= "promotions", ylab= "sales",
+xlim= c(0,10), ylim=c(0,16))
+plot(x$promotions, x$sales, las=2, main = "scatter plot of promotions and sales",xlab= "promotions", ylab= "sales",
+xlim= c(0,10), ylim=c(0,16))
+summary(x)
+head(x)
+lines(spline(x$promotions, x$sales, method= "fmm"))
+lines(smooth.spline(x$promotions, x$sales))
+lines(spline(x$promotions, x$sales))
+lines(smooth.spline(x$promotions, x$sales))
+lines(spline(x$promotions, x$sales, method= "fmm"))
+lines(smooth.spline(x$promotions, x$sales))
+setwd("F:/RANA/SOFTWARE/data river..xlsx/")
+library(xlsx)
+z=read.xlsx("F:/RANA/car_data_set.xlsx")
+z=read.xlsx("F:/RANA/car_data_set.xlsx", 1)
+View(z)
+z=read.xlsx("F:/RANA/car_data_set.xlsx", 2)
+View(z)
+z=read.xlsx("F:/RANA/car_data_set.xlsx", 1)
+View(z)
+names(z)
+z=z[, !apply(is.na(z),2, all)]
+names(z)
+z[1:9,]
+head(data.frame("KM"=z$KM, "SR_Price"=z$SR_Price,"Mfg_Year"=z$Mfg_Year)[order(-z$KM),])
+age=2017-z$Mfg_Year
+z=cbind(z,age)
+head(z)
+z1=z[,-c(1,2,3)]
+head(z1)
+set.seed(12345)
+part=sample(1,nrow(z1),0.5*nrow(z1),replace = F)
+part=sample(1:nrow(z1),0.5*nrow(z1),replace = F)
+z1train=z1[part]
+z1train=z1[part,]
+z1test=z1[-part,]
+View(z1test)
+View(z1train)
+View(z1test)
+View(z1test)
+View(z1test)
+View(z1test)
+View(z1test)
+View(z1test)
+View(z1test)
+mod=lm(price ~ ., z1train)
+View(z1train)
+mod=lm(price ~ ., z1train)
+mod=lm(price ~ ., z1train)
+View(z1train)
+library(rminer)
+library(rminer)
+library("rminer")
+mod=lm(price ~ ., z1train)###########
+install.packages(c("knitr", "rlang", "stringr"))
+data(diamonds)
+install.packages("tidyverse")
+library(tidyverse)
+data(diamonds)
+diamonds.lm  <- lm(log(price) ~ log(carat), data = diamonds)
+View(diamonds)
+View(diamonds.lm)
+unique(mpg$model)
+View(diamonds)
+View(diamonds)
+diamonds
+diamonds.lm  <- lm(log(price) ~ log(carat)+x, data = diamonds)
+summary(diamonds.lm)
+diamonds.lm  <- lm(log(price) ~ log(wt), data = diamonds)
+diamonds.lm  <- lm(log(price) ~ wt, data = diamonds)
+View(diamonds)
+diamonds.lm  <- lm(mgp ~ wt , data = diamonds)
+mtcars
+data(mtcars)
+diamonds.lm  <- lm(mgp ~ wt , data = mtcars)
+mtcars.lm  <- lm(mgp ~ wt , data = mtcars)
+mtcars.lm  <- lm(mgp ~ wt , data = mtcars)
+data(mtcars)
+mtcars.lm  <- lm(mgp ~ wt , data = mtcars)
+library(tidyverse)
+data(mtcars)
+mtcars.lm  <- lm(mgp ~ wt , data = mtcars)
+View(mtcars)
+summary(mtcars.lm)
+mtcars.lm  <- lm(mgp ~ wt , data = mtcars)
+View(mtcars)
+mtcars.lm  <- lm(mpg ~ wt , data = mtcars)
+summary(mtcars.lm)
+mtcars.lm  <- lm(mpg ~ wt+disp , data = mtcars)
+summary(mtcars.lm)
+View(mtcars)
+AdX_team  <- tribble(
+~Person, ~Pet,
+"Lewis", "Cat",
+"Sash", "Cat",
+"David", "Dog",
+"Jono", "Rabbit",
+"Dee", "Rabbit",
+"Alex", "Dog"
+)
+View(AdX_team)
+adx_team1 <- tribble(
+~names, ~animal,
+"rana", "dog",
+"aman", "cat",
+"shyam", "rabbit",
+"vivek", "cow"
+)
+View(adx_team1)
+AdX_team  <- AdX_team %>% mutate(Pet = factor(Pet))
+library(modelr)
+model_matrix(AdX_team,~Pet)
+View(AdX_team)
+data("chickwts")
+chickwts  <- as_tibble(chickwts)
+chickwts
+View(chickwts)
+ggplot(chickwts,aes(feed, weight)) + geom_boxplot()
+chickwts.lm  <- lm(weight ~ feed, data = chickwts)
+summary(chickwts.lm)
+anova(chickwts.lm)
+View(AdX_team)
+View(mtcars)
+table(mpg$manufacturer)
+install.packages("xlsx")
+library(xlsx)
+##############################################
+x1=read.xlsx(file.choose(),1)
+View(x1)
+table(x1$cars)
+data(mgp)
+View(AdX_team)
+View(mtcars)
+View(mtcars)
+table(mtcars$mgp)
+View(mtcars)
+table(mgp$disp)
+View(mtcars)
+install.packages("ggplot")
+library(ggplot)
+data(mpg
+)
+library(tidyverse)
+data(mpg
+)
+table(mpg$manufacturer)
+prop.table(table(mpg$manufacturer))
+ggplot(mpg,aes(manufacturer)) +
+geom_bar() +
+theme(text = element_text(size = 30), axis.text.x = element_text(angle = 90))
+view(mpg)
+library(xlsx)
+view(mpg)
+data(starwars)
+View(starwars)
+View(mpg)
+View(starwars)
+table(starwars$eye_color)
+prop.table(table(starwars$eye_color))
+data(storms)
+View(storms)
+mean(storms$wind)
+st(storms$wind)
+sd(storms$wind)
+head(storms)
+summary(storms)
+theme(text = element_text(size = 30))
+geom_bar(col= "black) +
+theme(text = element_text(size = 30))
+theme(text = element_text(size = 30))
+theme(text = element_text(size = 30))
+theme(text = element_text(size = 15))
+library(tidyverse)
+library(tidytext)
+library(janeaustenr)
+library(stringr)
+library(tidyverse)
+library(tidytext)
+library(janeaustenr)
+library(stringr)
+library(tidyverse)
+library(tidytext)
+library(janeaustenr)
+library(stringr)
+View(mpg)
+ggplot(mpg) +
+geom_point(mapping = aes(x  = displ, y = cty))
+library(tidyverse)
+ggplot(mpg)
+ggplot(mpg) +
+geom_point(mapping = aes(x  = displ, y = cty))
+ggplot(mpg) +
+geom_point(mapping = aes(x  = displ, y = cty, colour = drv))
+View(mpg)
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy)) +
+facet_wrap(~ class, nrow = 2)
+View(mpg)
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy)) +
+facet_wrap(~ drv, nrow = 2)
+library(stringr)
+ggplot(mpg) +
+geom_point(mapping = aes(x  = displ, y = cty, colour = drv))
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy)) +
+facet_wrap(~ class, nrow = 2)
+View(mpg)
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy)) +
+facet_grid(drv ~ cyl)
+ggplot(data = mpg) +
+geom_smooth(mapping = aes(x = displ, y = hwy)) +
+facet_grid(drv ~ cyl)
+ggplot(data = mpg) +
+geom_smooth(mapping = aes(x = displ, y = hwy))
+ggplot(data = mpg) +
+geom_line(mapping = aes(x = displ, y = hwy))
+ggplot(data = mpg) +
+geom_bar(mapping = aes(x = displ, y = hwy))
+ggplot(data = mpg) +
+geom_smooth(mapping = aes(x = displ, y = hwy))
+ggplot(data = mpg) +
+geom_smooth(mapping = aes(x = displ, y = hwy,linetype = drv))
+ggplot(data = mpg) +
+geom_smooth(mapping = aes(x = displ, y = hwy,color = drv))
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+geom_point() +
+geom_smooth()
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+geom_point() +
+geom_smooth()
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+geom_point() +
+geom_smooth()+coord_flip()
+View(storms)
+View(storms)
+ggplot(data = storms) +
+geom_point(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(data = storms) +
+geom_point(mapping = aes(x = wind, y = pressure, colour=status))+coord_flip()
+ggplot(data = storms) +
+geom_smooth(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(data = storms) +
+geom_line(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(data = storms) +
+geom_trendline(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(data = storms) +
+geom_line(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(data = storms) +
+geom_line(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(mpg) +
+geom_point(mapping = aes(x  = displ, y = cty, colour = drv))
+library(mlbench)
+library(tidyverse)
+library(mlbench)
+library(mlbench)
+data("BostonHousing2")
+data(BostonHousing2)
+this_is_a_really_long_name <- 2.5
+library(modelr)
+library(tidyverse)
+library(gapminder)
+library(gapminder)
+library(gapminder)
+library(gapminder)
+library(modelr)
+library(tidyverse)
+library(gapminder)
+library(tidyverse)
+library(gapminder)
+library(gapminder)
+ggplot(gapminder, aes(year, lifeExp, group = country)) +
+geom_line(alpha = 0.25)
+data(gapminder)
+library(gapminder)
+library(gapminder)
+data(gapminder)
+gapminder
+library(gapminder)
+library(gapminder)
+library(gapminder)
+library(gapminder)
+library(nycflights13)
+library(tidyverse)
+data(flights)
+flights
+View(flights)
+flights_sml <- select(flights,
+year:day,
+ends_with("delay"),
+distance,
+air_time
+)
+flights_sml
+mutate(flights_sml,
+gain = arr_delay - dep_delay,
+speed = distance / air_time * 60
+)
+mutate(flights_sml,
+gain = arr_delay - dep_delay,
+hours = air_time / 60,
+gain_per_hour = gain / hours
+)
+library(gapminder)
+transmute(flights,
+gain = arr_delay - dep_delay,
+hours = air_time / 60,
+gain_per_hour = gain / hours
+)
+(x <- 1:10)
+x <- 1:10
+cumsum(x)
+cummean(x)
+min_rank(x)
+cumprod(x)
+cummin(x)
+cummax(x)
+desc(x)
+y <- c(1, 2, 2, NA, 3, 4)
+y
+row_number(x)
+row_number(y)
+by_day <- group_by(flights, year, month, day)
+by_day
+summarise(by_day, delay = mean(dep_delay, na.rm = TRUE))
+delay <- summarise(by_dest,
+count = n(),
+dist = mean(distance, na.rm = TRUE),
+delay = mean(arr_delay, na.rm = TRUE)
+)
+by_dest <- group_by(flights, dest)
+delay <- summarise(by_dest,
+count = n(),
+dist = mean(distance, na.rm = TRUE),
+delay = mean(arr_delay, na.rm = TRUE)
+)
+delay
+delay <- filter(delay, count > 20, dest != "HNL")
+delay
+ggplot(data = delay, mapping = aes(x = dist, y = delay)) +
+geom_point(aes(size = count), alpha = 1/3) +
+geom_smooth(se = FALSE)
+not_cancelled <- flights %>%
+filter(!is.na(dep_delay), !is.na(arr_delay))
+not_cancelled
+not_cancelled %>%
+group_by(year, month, day) %>%
+summarise(mean = mean(dep_delay))
+View(flights)
+library(xlsx)
+write.xlsx(not_cancelled, "E:/not_cancelled.xlsx")
+not_cancelled
+delays <- not_cancelled %>%
+group_by(tailnum)
+delays
+View(delays)
+delays <- not_cancelled %>%
+group_by(tailnum) %>%
+summarise(
+delay = mean(arr_delay)
+)
+delays
+ggplot(data = delays, mapping = aes(x = delay)) +
+geom_freqpoly(binwidth = 10)
+delays <- not_cancelled %>%
+group_by(tailnum) %>%
+summarise(
+delay = mean(arr_delay, na.rm = TRUE),
+n = n()
+)
+ggplot(data = delays, mapping = aes(x = n, y = delay)) +
+geom_point(alpha = 1/10)
+delays %>%
+filter(n > 25) %>%
+ggplot(mapping = aes(x = n, y = delay)) +
+geom_point(alpha = 1/10)
+delays %>%
+filter(n > 25) %>%
+ggplot(mapping = aes(x = n, y = delay)) +
+geom_point(alpha = 1/10)
+library(Lahman)
+install.packages("Lahman")
+library(Lahman)
+data(Lahman)
+batting <- as_tibble(Lahman::Batting)
+batting
+batters <- batting %>%
+group_by(playerID) %>%
+summarise(
+ba = sum(H, na.rm = TRUE) / sum(AB, na.rm = TRUE),
+ab = sum(AB, na.rm = TRUE)
+)
+batters
+batters %>%
+filter(ab > 100) %>%
+ggplot(mapping = aes(x = ab, y = ba)) +
+geom_point() +
+geom_smooth(se = FALSE)
+batters %>%
+filter(ab > 100)
+desc(ba)
+batters %>%
+arrange(desc(ba))
+median(x)
+not_cancelled %>%
+count(tailnum, wt = distance)
+install.packages("mlbench")
+library(mlbench)
+data(BreastCancer)
+BreastCancer
+View(BreastCancer)
+BreastCancer <- tbl_df(BreastCancer)
+BreastCancer <- tibble(BreastCancer)
+library(tidyverse)
+BreastCancer <- tbl_df(BreastCancer)
+BreastCancer
+?BreastCancer
+?BreastCancer
+summary(BreastCancer
+summary(BreastCancer)
+summary(BreastCancer)
+BreastCancer <- na.omit(BreastCancer)
+summary(BreastCancer)
+predictors <- BreastCancer %>% select(Cl.thickness:Mitoses)
+predictors
+PCA <- princomp(predictors, scores = TRUE)
+predictors <- BreastCancer %>% select(Cl.thickness:Mitoses)
+PCA <- princomp(predictors, scores = TRUE)
+BreastCancer$PC1 <- PCA$scores[,1]
+BreastCancer$PC2 <- PCA$scores[,2]
+small_data <- data.frame(
+X = c(1,1,-1,1),
+Y = c(1,-1,1,1),
+Z = c(1,1,1,-1))
+small_data
+View(small_data)
+ggplot(data=small_data, mapping = aes(y,x))+
+geom_point()
+ggplot(data=small_data, mapping = aes(y,x))+
+geom_point(y,x)
+ggplot(data=small_data, mapping = aes(y=y,x=x))+
+geom_point()
+ggplot(data=small_data, mapping = aes(y=Y,x=X))+
+geom_point()
+ggplot(data=small_data, mapping = aes(y=Z,x=X))+
+geom_point()
+ggplot(data=small_data, mapping = aes(y=Z,x=Y))+
+geom_point()
+cov(X,Y)
+cov(X,Y)
+small_data
+cov(X,Y)
+cov(X,Y)
+cov(x,y)
+small_data <- data.frame(
+X = c(1,1,-1,1),
+Y = c(1,-1,1,1),
+Z = c(1,1,1,-1))
+cov(X,Y)
+time_multiplication <- function(A,B) {
+C = matrix(0, nrow = nrow(A), ncol = ncol(B))
+start_time <- proc.time()[3]
+for (i in 1:nrow(A)) {
+for (j in 1:ncol(B)) {
+C[i,j] = sum(A[i,]*B[,j])
+}
+}
+t <- proc.time()[3] - start_time
+return(as.numeric(t))
+}
+max_rows = 200
+t <- c()
+for (n in 1:max_rows) {
+D <- matrix(rnorm(n^2), ncol = n, nrow = n)
+E <- matrix(rnorm(n^2), ncol = n, nrow = n)
+t[n] <- time_multiplication(D,E)
+}
+run_times <- tibble(n = c(1:max_rows), time = t)
+ggplot(run_times,aes(n,time)) + geom_point() + geom_smooth()
+max_rows = 2000
+t <- c()
+for (n in 1:max_rows) {
+D <- matrix(rnorm(n^2), ncol = n, nrow = n)
+E <- matrix(rnorm(n^2), ncol = n, nrow = n)
+t[n] <- time_multiplication(D,E)
+}
+setwd("C:/Users/IDM LAB-02/Desktop/Machine Learning A-Z-20180315T121042Z-001-20180317T155303Z-001/Machine Learning A-Z-20180315T121042Z-001/Machine Learning A-Z/Part 5 - Association Rule Learning/Section 29 - Eclat")
+# Data Preprocessing
+install.packages('arules')
+# Data Preprocessing
+#install.packages('arules')
+library(arules)
+dataset = read.csv('Market_Basket_Optimisation.csv')
+View(dataset)
+dataset = read.transactions('Market_Basket_Optimisation.csv', sep = ',', rm.duplicates = TRUE)
+summary(dataset)
+itemFrequencyPlot(dataset, topN = 10)
+# Training Eclat on the dataset
+rules = eclat(data = dataset, parameter = list(support = 0.003, minlen = 2))
+rules
+# Visualising the results
+inspect(sort(rules, by = 'support')[1:10])
+# Training Eclat on the dataset
+rules = eclat(data = dataset, parameter = list(support = 0.004, minlen = 2))
+rules
+# Visualising the results
+inspect(sort(rules, by = 'support')[1:10])

@@ -1,0 +1,10 @@
+echo "# kurtosis_skewness-of-wage-data" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/ranasingh-gkp/kurtosis_skewness-of-wage-data.git
+git push -u origin master
+
+
+
+https://github.com/ranasingh-gkp/kurtosis_skewness-of-wage-data.git

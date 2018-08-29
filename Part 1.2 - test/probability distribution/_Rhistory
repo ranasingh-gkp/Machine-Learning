@@ -1,0 +1,143 @@
+setwd("C:/Users/user/Desktop/Machine Learning A-Z/Part 1.2 - test/probability distribution")
+ppois(16, lambda=12)   # lower tail
+ppois(16, lambda=12, lower=FALSE)   # upper tail
+visualize.pois(stat = 1, lambda = 12, section = "lower",
+strict = FALSE)
+pois(stat = 1, lambda = 12, section = "lower",
+strict = FALSE)
+library(visualize)
+library(visualize.pois)
+library(visualize)
+help(visualize.pois)
+??visualize.pois
+visualize.pois <-
+function(stat = 1, lambda = 3.5, section = "lower", strict = FALSE) {
+visualize.it('pois', stat = stat, list(lambda = lambda), section = section, strict=strict)
+}
+visualize.pois
+plot(visualize.pois)
+library(visualize)
+install.packages("visualize")
+library(visualize)
+visualize.pois <-
+function(stat = 1, lambda = 3.5, section = "lower", strict = FALSE) {
+visualize.it('pois', stat = stat, list(lambda = lambda), section = section, strict=strict)
+}
+visualize.pois(stat = 1, lambda = 12, section = "lower",
+strict = FALSE)
+# Evaluates lower tail.
+visualize.pois(stat = 1, lambda = 2, section = "lower", strict = FALSE)
+# Evaluates lower tail.
+visualize.pois(stat = 1, lambda = 12, section = "lower", strict = FALSE)
+# Evaluates lower tail.
+visualize.pois(stat = 1, lambda = 12, section = "lower", strict = FALSE)
+# Evaluates bounded region.
+visualize.pois(stat = c(1,3), lambda = 12, section = "bounded", strict = c(0,1))
+# Evaluates upper tail.
+visualize.pois(stat = 1, lambda = 12, section = "upper", strict = 1)
+# Evaluates lower tail.
+visualize.pois(stat = 1, lambda = 12, section = "lower", strict = FALSE)
+# Evaluates bounded region.
+visualize.pois(stat = c(1,3), lambda = 12, section = "bounded", strict = c(0,1))
+# Evaluates upper tail.
+visualize.pois(stat = 1, lambda = 12, section = "upper", strict = 1)
+# Evaluates bounded region.
+visualize.pois(stat = c(1,3), lambda = 12, section = "bounded", strict = c(0,1))
+# Evaluates lower tail.
+visualize.pois(stat = 1, lambda = 12, section = "lower", strict = FALSE)
+# Evaluates bounded region.
+visualize.pois(stat = c(1,3), lambda = 12, section = "bounded", strict = c(0,1))
+# Evaluates upper tail.
+visualize.pois(stat = 1, lambda = 12, section = "upper", strict = 1)
+# Evaluates bounded region.
+visualize.pois(stat = c(1,10), lambda = 12, section = "bounded", strict = c(0,1))
+## visualize.it acts as the general wrapper.
+## For guided application of visualize, see the visualize.distr_name list.
+# Binomial distribution evaluated at lower tail.
+visualize.it(dist = 'binom', stat = 2, params = list(size = 4,prob = .5),
+section ="lower", strict = TRUE)
+## visualize.it acts as the general wrapper.
+## For guided application of visualize, see the visualize.distr_name list.
+# Binomial distribution evaluated at lower tail.
+visualize.it(dist = 'binom', stat = 2, params = list(size = 12,prob = .2),
+section ="lower", strict = TRUE)
+visualize.binom(stat = 2, size = 12, prob =.2, section ="lower", strict = TRUE)
+visualize.binom(stat = 2, size = 12, prob =.2, section ="lower", strict = TRUE)
+## visualize.it acts as the general wrapper.
+## For guided application of visualize, see the visualize.distr_name list.
+# Binomial distribution evaluated at lower tail.
+visualize.it(dist = 'binom', stat = 2, params = list(size = 12,prob = .2),
+section ="lower", strict = TRUE)
+visualize.binom(stat = 2, size = 12, prob =.2, section ="lower", strict = TRUE)
+## visualize.it acts as the general wrapper.
+## For guided application of visualize, see the visualize.distr_name list.
+# Binomial distribution evaluated at lower tail.
+visualize.it(dist = 'binom', stat = 4, params = list(size = 12,prob = .2),
+section ="lower", strict = TRUE)
+## visualize.it acts as the general wrapper.
+## For guided application of visualize, see the visualize.distr_name list.
+# Binomial distribution evaluated at lower tail.
+visualize.it(dist = 'binom', stat = 2, params = list(size = 12,prob = .2),
+section ="lower", strict = TRUE)
+View(visualize.pois)
+## visualize.it acts as the general wrapper.
+## For guided application of visualize, see the visualize.distr_name list.
+# Binomial distribution evaluated at lower tail.
+install.packages("visualize")
+install.packages("visualize")
+#----------------------------
+#using ggplot
+plot( dpois( x=0:20, lambda=1 ), type="b")
+#----------------------------
+#using ggplot
+plot( dpois( x=0:20, lambda=12 ), type="b")
+#----------------------------
+#using ggplot
+plot( dpois( x=0:30, lambda=12 ), type="b")
+#----------------------------
+#using ggplot
+plot( dpois( x=0:20, lambda=12 ), type="b")
+#----------------------------
+#using ggplot
+plot( dpois( x=0:20, lambda=12 ), type="r")
+#----------------------------
+#using ggplot
+plot( dpois( x=0:20, lambda=12 ), type="b")
+runif(10, min=1, max=3)
+ggplot(data.frame(x=c(-10,10)), aes(x)) + stat_function(fun=dnorm, args=list(0, 1))
+install.packages("ggplot2")
+library(ggplot2)
+ggplot(data.frame(x=c(-10,10)), aes(x)) + stat_function(fun=dnorm, args=list(0, 1))
+pexp(2, rate=1/3)
+data =  data.frame(x=rexp(n = 100000, rate = 1/3))
+m <- ggplot(data, aes(x=data$x))
+data =  data.frame(x=rexp(n = 100000, rate = 1/3))
+m <- ggplot(data, aes(x=data$x))
+pexp(2, rate=1/3)
+#The exponential distribution can be obtained with the dexp function, so you can plot it by sampling x values and processing them with that function:
+x <- seq(0, 20, length.out=1000)
+dat <- data.frame(x=x, px=dexp(x, rate=0.65))
+library(ggplot2)
+ggplot(dat, aes(x=x, y=px)) + geom_line()
+curve(dexp, xlim=c(0,10))
+#--------------------------------
+#And a ggplot solution that takes advantage of stat_function(...), which was intended for this.
+library(ggplot2)
+df <- data.frame(x=seq(0,10,by=0.1))
+ggplot(df) + stat_function(aes(x),fun=dexp)
+#-----------------------------------
+h<-ggplot(data.frame(x=c(0,7)),aes(x=x))
+h<-h+stat_function(fun=dexp,geom = "line",size=2,col="blue",args = (mean=1.5))
+h<-h+stat_function(fun=dexp,geom = "line",size=2,col="green",args = (mean=1))
+h<-h+stat_function(fun=dexp,geom = "line",size=2,col="red",args = (mean=0.5))
+library(ggplot2)
+ggplot(data.frame(x=c(0,7)),aes(x=x))+stat_function(fun=dexp,geom =    "line",size=2,col="orange",args = (mean=0.5))
+ggplot(data.frame(x=c(0,7)),aes(x=x))+stat_function(fun=dexp,geom =     "line",size=2,col="purple",args = (mean=1))
+ggplot(data.frame(x=c(0,7)),aes(x=x))+stat_function(fun=dexp,geom =     "line",size=2,col="blue",args = (mean=1.5))
+ggplot(data.frame(x=c(0,7)),aes(x=x))+stat_function(fun=dexp,geom =    "line",size=2,col="orange",args = (mean=0.5))+
+ggplot(data.frame(x=c(0,7)),aes(x=x))+stat_function(fun=dexp,geom =     "line",size=2,col="purple",args = (mean=1))+
+ggplot(data.frame(x=c(0,7)),aes(x=x))+stat_function(fun=dexp,geom =     "line",size=2,col="blue",args = (mean=1.5))
+ggplot(data.frame(x=c(0,7)),aes(x=x))+stat_function(fun=dexp,geom =    "line",size=2,col="orange",args = (mean=0.5))
+ggplot(data.frame(x=c(0,7)),aes(x=x))+stat_function(fun=dexp,geom =     "line",size=2,col="purple",args = (mean=1))
+ggplot(data.frame(x=c(0,7)),aes(x=x))+stat_function(fun=dexp,geom =     "line",size=2,col="blue",args = (mean=1.5))
+setwd("J:/R projects/phoenixhsl/R scripts")

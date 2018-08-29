@@ -1,0 +1,512 @@
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy)) +
+facet_wrap(~ class, nrow = 2)
+View(mpg)
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy)) +
+facet_wrap(~ drv, nrow = 2)
+library(stringr)
+ggplot(mpg) +
+geom_point(mapping = aes(x  = displ, y = cty, colour = drv))
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy)) +
+facet_wrap(~ class, nrow = 2)
+View(mpg)
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy)) +
+facet_grid(drv ~ cyl)
+ggplot(data = mpg) +
+geom_smooth(mapping = aes(x = displ, y = hwy)) +
+facet_grid(drv ~ cyl)
+ggplot(data = mpg) +
+geom_smooth(mapping = aes(x = displ, y = hwy))
+ggplot(data = mpg) +
+geom_line(mapping = aes(x = displ, y = hwy))
+ggplot(data = mpg) +
+geom_bar(mapping = aes(x = displ, y = hwy))
+ggplot(data = mpg) +
+geom_smooth(mapping = aes(x = displ, y = hwy))
+ggplot(data = mpg) +
+geom_smooth(mapping = aes(x = displ, y = hwy,linetype = drv))
+ggplot(data = mpg) +
+geom_smooth(mapping = aes(x = displ, y = hwy,color = drv))
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+geom_point() +
+geom_smooth()
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+geom_point() +
+geom_smooth()
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+geom_point() +
+geom_smooth()+coord_flip()
+View(storms)
+View(storms)
+ggplot(data = storms) +
+geom_point(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(data = storms) +
+geom_point(mapping = aes(x = wind, y = pressure, colour=status))+coord_flip()
+ggplot(data = storms) +
+geom_smooth(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(data = storms) +
+geom_line(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(data = storms) +
+geom_trendline(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(data = storms) +
+geom_line(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(data = storms) +
+geom_line(mapping = aes(x = wind, y = pressure, colour=status))
+ggplot(mpg) +
+geom_point(mapping = aes(x  = displ, y = cty, colour = drv))
+library(mlbench)
+library(tidyverse)
+library(mlbench)
+library(mlbench)
+data("BostonHousing2")
+data(BostonHousing2)
+this_is_a_really_long_name <- 2.5
+library(modelr)
+library(tidyverse)
+library(gapminder)
+library(gapminder)
+library(gapminder)
+library(gapminder)
+library(modelr)
+library(tidyverse)
+library(gapminder)
+library(tidyverse)
+library(gapminder)
+library(gapminder)
+ggplot(gapminder, aes(year, lifeExp, group = country)) +
+geom_line(alpha = 0.25)
+data(gapminder)
+library(gapminder)
+library(gapminder)
+data(gapminder)
+gapminder
+library(gapminder)
+library(gapminder)
+library(gapminder)
+library(gapminder)
+library(nycflights13)
+library(tidyverse)
+data(flights)
+flights
+View(flights)
+flights_sml <- select(flights,
+year:day,
+ends_with("delay"),
+distance,
+air_time
+)
+flights_sml
+mutate(flights_sml,
+gain = arr_delay - dep_delay,
+speed = distance / air_time * 60
+)
+mutate(flights_sml,
+gain = arr_delay - dep_delay,
+hours = air_time / 60,
+gain_per_hour = gain / hours
+)
+library(gapminder)
+transmute(flights,
+gain = arr_delay - dep_delay,
+hours = air_time / 60,
+gain_per_hour = gain / hours
+)
+(x <- 1:10)
+x <- 1:10
+cumsum(x)
+cummean(x)
+min_rank(x)
+cumprod(x)
+cummin(x)
+cummax(x)
+desc(x)
+y <- c(1, 2, 2, NA, 3, 4)
+y
+row_number(x)
+row_number(y)
+by_day <- group_by(flights, year, month, day)
+by_day
+summarise(by_day, delay = mean(dep_delay, na.rm = TRUE))
+delay <- summarise(by_dest,
+count = n(),
+dist = mean(distance, na.rm = TRUE),
+delay = mean(arr_delay, na.rm = TRUE)
+)
+by_dest <- group_by(flights, dest)
+delay <- summarise(by_dest,
+count = n(),
+dist = mean(distance, na.rm = TRUE),
+delay = mean(arr_delay, na.rm = TRUE)
+)
+delay
+delay <- filter(delay, count > 20, dest != "HNL")
+delay
+ggplot(data = delay, mapping = aes(x = dist, y = delay)) +
+geom_point(aes(size = count), alpha = 1/3) +
+geom_smooth(se = FALSE)
+not_cancelled <- flights %>%
+filter(!is.na(dep_delay), !is.na(arr_delay))
+not_cancelled
+not_cancelled %>%
+group_by(year, month, day) %>%
+summarise(mean = mean(dep_delay))
+View(flights)
+library(xlsx)
+write.xlsx(not_cancelled, "E:/not_cancelled.xlsx")
+not_cancelled
+delays <- not_cancelled %>%
+group_by(tailnum)
+delays
+View(delays)
+delays <- not_cancelled %>%
+group_by(tailnum) %>%
+summarise(
+delay = mean(arr_delay)
+)
+delays
+ggplot(data = delays, mapping = aes(x = delay)) +
+geom_freqpoly(binwidth = 10)
+delays <- not_cancelled %>%
+group_by(tailnum) %>%
+summarise(
+delay = mean(arr_delay, na.rm = TRUE),
+n = n()
+)
+ggplot(data = delays, mapping = aes(x = n, y = delay)) +
+geom_point(alpha = 1/10)
+delays %>%
+filter(n > 25) %>%
+ggplot(mapping = aes(x = n, y = delay)) +
+geom_point(alpha = 1/10)
+delays %>%
+filter(n > 25) %>%
+ggplot(mapping = aes(x = n, y = delay)) +
+geom_point(alpha = 1/10)
+library(Lahman)
+install.packages("Lahman")
+library(Lahman)
+data(Lahman)
+batting <- as_tibble(Lahman::Batting)
+batting
+batters <- batting %>%
+group_by(playerID) %>%
+summarise(
+ba = sum(H, na.rm = TRUE) / sum(AB, na.rm = TRUE),
+ab = sum(AB, na.rm = TRUE)
+)
+batters
+batters %>%
+filter(ab > 100) %>%
+ggplot(mapping = aes(x = ab, y = ba)) +
+geom_point() +
+geom_smooth(se = FALSE)
+batters %>%
+filter(ab > 100)
+desc(ba)
+batters %>%
+arrange(desc(ba))
+median(x)
+not_cancelled %>%
+count(tailnum, wt = distance)
+install.packages("mlbench")
+library(mlbench)
+data(BreastCancer)
+BreastCancer
+View(BreastCancer)
+BreastCancer <- tbl_df(BreastCancer)
+BreastCancer <- tibble(BreastCancer)
+library(tidyverse)
+BreastCancer <- tbl_df(BreastCancer)
+BreastCancer
+?BreastCancer
+?BreastCancer
+summary(BreastCancer
+summary(BreastCancer)
+summary(BreastCancer)
+BreastCancer <- na.omit(BreastCancer)
+summary(BreastCancer)
+predictors <- BreastCancer %>% select(Cl.thickness:Mitoses)
+predictors
+PCA <- princomp(predictors, scores = TRUE)
+predictors <- BreastCancer %>% select(Cl.thickness:Mitoses)
+PCA <- princomp(predictors, scores = TRUE)
+BreastCancer$PC1 <- PCA$scores[,1]
+BreastCancer$PC2 <- PCA$scores[,2]
+small_data <- data.frame(
+X = c(1,1,-1,1),
+Y = c(1,-1,1,1),
+Z = c(1,1,1,-1))
+small_data
+View(small_data)
+ggplot(data=small_data, mapping = aes(y,x))+
+geom_point()
+ggplot(data=small_data, mapping = aes(y,x))+
+geom_point(y,x)
+ggplot(data=small_data, mapping = aes(y=y,x=x))+
+geom_point()
+ggplot(data=small_data, mapping = aes(y=Y,x=X))+
+geom_point()
+ggplot(data=small_data, mapping = aes(y=Z,x=X))+
+geom_point()
+ggplot(data=small_data, mapping = aes(y=Z,x=Y))+
+geom_point()
+cov(X,Y)
+cov(X,Y)
+small_data
+cov(X,Y)
+cov(X,Y)
+cov(x,y)
+small_data <- data.frame(
+X = c(1,1,-1,1),
+Y = c(1,-1,1,1),
+Z = c(1,1,1,-1))
+cov(X,Y)
+time_multiplication <- function(A,B) {
+C = matrix(0, nrow = nrow(A), ncol = ncol(B))
+start_time <- proc.time()[3]
+for (i in 1:nrow(A)) {
+for (j in 1:ncol(B)) {
+C[i,j] = sum(A[i,]*B[,j])
+}
+}
+t <- proc.time()[3] - start_time
+return(as.numeric(t))
+}
+max_rows = 200
+t <- c()
+for (n in 1:max_rows) {
+D <- matrix(rnorm(n^2), ncol = n, nrow = n)
+E <- matrix(rnorm(n^2), ncol = n, nrow = n)
+t[n] <- time_multiplication(D,E)
+}
+run_times <- tibble(n = c(1:max_rows), time = t)
+ggplot(run_times,aes(n,time)) + geom_point() + geom_smooth()
+max_rows = 2000
+t <- c()
+for (n in 1:max_rows) {
+D <- matrix(rnorm(n^2), ncol = n, nrow = n)
+E <- matrix(rnorm(n^2), ncol = n, nrow = n)
+t[n] <- time_multiplication(D,E)
+}
+setwd("C:/Users/IDM LAB-02/Desktop/Machine Learning A-Z/Part 3 - Classification/Section 14 - Logistic Regression")
+dataset = read.csv('Social_Network_Ads.csv')
+View(dataset)
+dataset = dataset[, 3:5]
+View(dataset)
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$DependentVariable, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+# Splitting the dataset into the Training set and Test set
+# install.packages('caTools')
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$DependentVariable, SplitRatio = 0.75)
+split = sample.split(dataset, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+View(test_set)
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+training_set[,1:2] = scale(training_set[,1:2])
+test_set[,1:2] = scale(test_set[,1:2])
+View(test_set)
+View(training_set)
+#fitting logistic regression to training set
+classifier = glmI(formula = Purchased ~ .,
+family= binomial,
+data = training_set )
+#fitting logistic regression to training set
+classifier = glm(formula = Purchased ~ .,
+family= binomial,
+data = training_set )
+prob_pred = predict(classifier, type = 'response', newdata = test_set[-3])
+y_pred = ifelse(prob_pred > 0.5, 1, 0)
+View(test_set)
+#(predict probability that user buy)
+y_pred
+# Making the Confusion Matrix
+cm = table(test_set[, 3], y_pred)
+cm
+# Visualising the Training set results
+install.packages('ElemStatLearn')
+library(ElemStatLearn)
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+prob_set = predict(classifier, type = 'response', newdata = grid_set)
+y_grid = ifelse(prob_set > 0.5, 1, 0)
+plot(set[, -3],
+main = 'Logistic Regression (Training set)',
+xlab = 'Age', ylab = 'Estimated Salary',
+xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+prob_set = predict(classifier, type = 'response', newdata = grid_set)
+y_grid = ifelse(prob_set > 0.5, 1, 0)
+plot(set[, -3],
+main = 'Logistic Regression (Training set)',
+xlab = 'Age', ylab = 'Estimated Salary',
+xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+prob_set = predict(classifier, type = 'response', newdata = grid_set)
+y_grid = ifelse(prob_set > 0.5, 1, 0)
+plot(set[, -3],
+main = 'Logistic Regression (Test set)',
+xlab = 'Age', ylab = 'Estimated Salary',
+xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+# Classification template
+# Importing the dataset
+dataset = read.csv('Social_Network_Ads.csv')
+dataset = dataset[3:5]
+# Encoding the target feature as factor
+dataset$Purchased = factor(dataset$Purchased, levels = c(0, 1))
+# Splitting the dataset into the Training set and Test set
+# install.packages('caTools')
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+# Feature Scaling
+training_set[-3] = scale(training_set[-3])
+test_set[-3] = scale(test_set[-3])
+# Fitting classifier to the Training set
+# Create your classifier here
+# Predicting the Test set results
+y_pred = predict(classifier, newdata = test_set[-3])
+View(test_set)
+# Splitting the dataset into the Training set and Test set
+install.packages('caTools')
+# Fitting classifier to the Training set
+library(class)
+# Fitting K-NN to the Training set and predicting test set result
+library(class)
+y_pred = knn(train = training_set[, -3],
+test = test_set[, -3],
+cl = training_set[, 3],
+k = 5)
+y_pred
+View(test_set)
+cm = table(test_set[, 3], y_pred)
+cm
+# Visualising the Training set results
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = knn(train = training_set[, -3],
+test = grid_set[, -3],
+cl = training_set[, 3],
+k = 5)
+plot(set[, -3],
+main = 'Classifier (Training set)',
+xlab = 'Age', ylab = 'Estimated Salary',
+xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+# Visualising the Test set results
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = knn(train = training_set[, -3],
+test = grid_set[, -3],
+cl = training_set[, 3],
+k = 5)
+plot(set[, -3], main = 'Classifier (Test set)',
+xlab = 'Age', ylab = 'Estimated Salary',
+xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+setwd("C:/Users/IDM LAB-02/Desktop/Machine Learning A-Z/Part 3 - Classification/Section 15 - K-Nearest Neighbors (K-NN)")
+setwd("C:/Users/IDM LAB-02/Desktop/Machine Learning A-Z/Part 3 - Classification/Section 16 - Support Vector Machine (SVM)")
+# Fitting classifier to the Training set
+install.packages('e1071')
+library(e1071)
+library(e1071)
+# SVM
+# Importing the dataset
+dataset = read.csv('Social_Network_Ads.csv')
+dataset = dataset[3:5]
+# Encoding the target feature as factor
+dataset$Purchased = factor(dataset$Purchased, levels = c(0, 1))
+# Splitting the dataset into the Training set and Test set
+# install.packages('caTools')
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+# Feature Scaling
+training_set[-3] = scale(training_set[-3])
+test_set[-3] = scale(test_set[-3])
+classifier = svm(formula= Purchased~ . ,
+data = training_set,
+type = 'C-classification',
+kernel= 'linear')
+y_pred = predict(classifier, newdata = test_set[-3])
+y_pred
+cm = table(test_set[, 3], y_pred)
+cm
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = predict(classifier, newdata = grid_set)
+plot(set[, -3],
+main = 'SVM (Training set)',
+xlab = 'Age', ylab = 'Estimated Salary',
+xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = predict(classifier, newdata = grid_set)
+plot(set[, -3], main = 'SVM (Test set)',
+xlab = 'Age', ylab = 'Estimated Salary',
+xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))

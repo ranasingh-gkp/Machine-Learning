@@ -1,0 +1,10 @@
+regressor = lm(formula = Profit ~ R.D.Spend+Administration+Marketing.Spend, data = dataset)
+# wrap the parameters
+newdata = data.frame(Administration=778562,  # wrap the parameters 
+                     Marketing.Spend=206974, 
+                     R.D.Spend=850746)
+
+predict(regressor, newdata)
+summary(regressor)$r.squared
+summary(regressor)$adj.r.squared
+

@@ -1,0 +1,344 @@
+hi
+2
+?read.table
+?read.table
+help.search
+help.search()
+help.search()
+help.search
+apropos{'lm'}
+example(lm)
+library("xlsx")
+library(xlsx)
+install.packages(xlsx)
+install.packages("xlsx")
+x=read.xlsx(file.choose(),1)
+head(x)
+x=read.xlsx("F:/mtech 1 sem/til india/Calculation_excel_TIL INDIA Group 8-10th Nov.2017.xlsx",1)
+x=read.xlsx("F:/mtech 1 sem/til india/Calculation_excel_TIL INDIA Group 8-10th Nov.2017.xlsx",BALANCE SHEET)
+library(xlsx)
+library(xlsx)
+library(xlsx)
+library(xlsx)
+library(xlsx)
+library(xlsx)
+library(xlsx)
+library("xlsx")
+library(xlsx)
+install.packages("xlsx")
+library(xlsx)
+install.packages("xlsx")
+library(xlsx)
+library("xlsx")
+library(xlsx)
+library("JAVA_HOME")
+install.packages("JAVA_HOME")
+library(xlsxjars)
+install.packages("xlsxjars")
+library(xlsxjars)
+library(xlsx)
+install.packages("rJava")
+library(rJava)
+library(xlsx)
+Sys.setenv(JAVA_HOME='C:\Program Files\Java\jre7') # for 64-bit version
+Sys.setenv(JAVA_HOME='C:\Program Files (x86)\Java\jre1.8.0_161') # for 64-bit version
+Sys.setenv(JAVA_HOME='C:/Program Files (x86)/Java/jre1.8.0_161') # for 64-bit version
+library(xlsx)
+Sys.setenv(JAVA_HOME='C:/Program Files (x86)/Java/jre1.8.0_161') # for 64-bit version
+library(rJava)
+library(xlsx)
+Sys.setenv(JAVA_HOME='C://Program Files (x86)//Java//jre7')
+library(rJava)
+library(rJava)
+library(xlsx)
+Sys.setenv(JAVA_HOME='C:/Program Files (x86)/Java/jre1.8.0_161') # for 64-bit version
+library(rJava)
+Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre7')
+library(rJava)
+library(xlsx)
+Sys.setenv(JAVA_HOME='C:\Program Files\Java\jre1.8.0_161\bin') # for 64-bit version
+Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_161\\bin') # for 64-bit version
+library(rJava)
+library(xlsx)
+y=read.xlsx(file.choose(),1)
+View(y)
+y=read.xlsx(file.choose(),1)
+View(y)
+summary(x)
+summary(y)
+cor(y$annual.income,y$household.area)
+cov(y$annual.income,y$household.area)
+mean(y$annual.income)
+median(y$annual.income)
+range(y$annual.income)
+sd(y$annual.income)
+var(y$annual.income)
+View(y)
+View(y)
+View(y)
+View(y)
+update(y)
+y=read.xlsx(file.choose(),1)
+View(y)
+apply(y[,c(1,2)],MARGIN = 2,FUN = SD)
+apply(y[,c(1,2)],MARGIN = 2,FUN = sd)
+apply(y[,c(1,3)],MARGIN = 2,FUN = sd)
+apply(y[,c(1,3)],MARGIN = 3,FUN = sd)
+apply(y[,c(1,3)],MARGIN = 2,FUN = sd)
+sd(y$annual.income)
+apply(y[,c(1,3)],MARGIN = 2,FUN = sd)
+library(mtcars)
+data(mtcars)
+head(mtcars)
+View(mtcars)
+mtcars.lm <- lm(mpg ~ disp, data=mtcars)
+View(mtcars)
+View(mtcars.lm)
+summary(mtcars.lm)
+library(broom)
+library(stats)
+library(broom)
+AIC(mtcars.lm)
+BIC(mtcars.lm)
+lm.null <- lm(mpg ~ 1, data=mtcars)
+summary(lm.null)
+step(lm.null, scope=list(upper=lm(mpg ~ ., data=mtcars)), direction="forward")
+lm.full <- lm(mpg ~ ., data=mtcars)
+summary(lm.full)
+summary(lm.null)
+summary(lm.full)
+step(lm.full, scope=list(lower=lm.null), direction="backward")
+step(lm.mtcars, scope=list(upper=lm.full,lower=lm.null), direction="both")
+step(mtcars.lm, scope=list(upper=lm.full,lower=lm.null), direction="both")
+View(mtcars)
+View(mtcars)
+data(mpg)
+mpg
+library(modelr)
+library(tidyverse)
+install.packages(tidyverse)
+install.packages("tidyverse")
+library(tidyverse)
+data(mpg)
+mpg
+library(modelr)
+cv  <- crossv_kfold(mpg, k = 5)
+cv
+models1  <- map(cv$train, ~lm(hwy ~ displ, data = .))
+models2  <- map(cv$train, ~lm(hwy ~ displ + drv, data = .))
+get_pred  <- function(model, test_data){
+data  <- as.data.frame(test_data)
+pred  <- add_predictions(data, model)
+return(pred)
+}
+pred1  <- map2_df(models1, cv$test, get_pred, .id = "Run")
+pred2  <- map2_df(models2, cv$test, get_pred, .id = "Run")
+MSE1  <- pred1 %>% group_by(Run) %>%
+summarise(MSE = mean( (hwy - pred)^2))
+MSE1
+MSE2  <- pred2 %>% group_by(Run) %>%
+summarise(MSE = mean( (hwy - pred)^2))
+MSE2
+mean(MSE1$MSE)
+mean(MSE2$MSE)
+set.seed(5)
+x <- seq(1,5)
+y 7 <- x + rnorm(5,mean = 0, sd = 0.5)
+y <- x + rnorm(5,mean = 0, sd = 0.5)
+training_data <- tibble(x = x, y = y)
+training_data
+training_data.lm1 <- lm(y ~ x)
+ggplot(training_data,aes(x,y)) +
+geom_point()
+ggplot(training_data,aes(x,y)) +
+geom_point() +
+geom_line(aes(y=fitted(training_data.lm1)))
+training_data <- training_data %>%
+mutate(x2 = x^2,
+x3 = x^3)
+training_data
+training_data.lm2 <- lm(y ~ x + x2 + x3, data = training_data)
+ggplot(training_data,aes(x,y)) +
+geom_point() +
+geom_line(aes(y=fitted(training_data.lm2)))
+training_data <- training_data %>%
+mutate(x4 = x^4,
+x5 = x^5)
+training_data
+training_data.lm3 <- lm(y ~ x + x2 + x3 + x4 + x5, data = training_data)
+ggplot(training_data,aes(x,y)) +
+geom_point() +
+geom_line(aes(y=fitted(training_data.lm3)))
+testing_data <- tibble(x = 1.8, y = 1.85)
+testing_data <- testing_data %>%
+mutate(x2 = x^2,
+x3 = x^3,
+x4 = x^4,
+x5 = x^5)
+# predict y-value using the model
+testing_data <- add_predictions(testing_data,training_data.lm3)
+xx <- seq(1,5,0.01)
+data_all <- tibble(x = xx, x2 = xx^2, x3 = xx^3, x4 = xx^4, x5 = xx^5)
+data_all <- add_predictions(data_all,training_data.lm3)
+ggplot(training_data,aes(x,y)) +
+geom_point() +
+geom_line(data = data_all,aes(x,pred))
+ggplot(training_data,aes(x,y)) +
+geom_point() +
+geom_point(data = testing_data,aes(x,pred), color = 'blue', size = 5) +
+geom_point(data = testing_data,aes(x,y), color = 'red', size = 5, shape = 'x')
+View(cv)
+data(mpg)
+library("tidyverse")
+data(mpg)
+ggplot(mpg) +
+geom_point(mapping = aes(x  = displ, y = cty))
+colour = drv
+mpg
+colour = drv
+ggplot(mpg) +
+geom_point(mapping = aes(x  = displ, y = cty,colour = drv))
+ggplot(mpg) +
+geom_point(mapping = aes(x  = displ, y = cty)) +
+geom_smooth(mapping = aes(x  = displ, y = cty))
+ggplot(mpg, mapping = aes(x  = displ, y = cty)) +
+geom_point() +
+geom_smooth()
+ggplot(mpg, mapping = aes(x = displ, y = cty, colour = drv)) +
+geom_point() +
+geom_smooth()
+ggplot(mpg, mapping = aes(x = displ, y = cty, colour = drv)) +
+geom_point() +
+geom_smooth() +
+facet_wrap( ~ drv)
+library(tidyverse)
+library(tidytext)
+library(janeaustenr)
+library(stringr)
+install.packages(tidytext)
+install.packages("tidytext")
+install.packages("janeaustenr")
+library(tidytext)
+library(janeaustenr)
+library(stringr)
+original_books <- austen_books() %>%
+group_by(book) %>%
+mutate(linenumber = row_number(),
+chapter = cumsum(str_detect(text, regex("^chapter [\\divxlc]",
+ignore_case = TRUE)))) %>%
+ungroup()
+tidy_books <- original_books %>%
+unnest_tokens(word, text)
+View(original_books)
+View(tidy_books)
+library(dplyr)
+tidy_books %>%
+anti_join(stop_words) %>%
+count(word, sort = TRUE)
+tidy_books %>%
+anti_join(stop_words) %>%
+count(word, sort = TRUE) %>%
+filter(n > 700) %>%
+ggplot(aes(word, n)) +
+geom_col()
+tidy_books %>%
+anti_join(stop_words) %>%
+count(word, sort = TRUE) %>%
+filter(n > 700) %>%
+ggplot(aes(word, n))
+tidy_books %>%
+anti_join(stop_words) %>%
+count(word, sort = TRUE) %>%
+filter(n > 700) %>%
+ggplot(aes(word, n)) +
+geom_col()
+library(gutenbergr)
+install.packages("gutenbergr")
+library(gutenbergr)
+oliver_twist <- gutenberg_download(730)
+oliver_twist
+alice_books <- gutenberg_download(c(11,12))
+library(dplyr)
+text_df <- data_frame(line = 1:4, text = text)
+text_df
+library(dplyr)
+text_df <- data_frame(line = 1:4, text = text)
+library(tidyverse)
+text_df <- data_frame(line = 1:4, text = text)
+text_df
+qbeta(.5,,2,1)
+qbeta(.5,2,1)
+qbeta(.5)
+qbeta(.5,2,1)
+qbeta(.5,3,1)
+library(readxl)
+datasets <- read.csv("Data.csv")
+View(Data)
+library(readxl)
+Data <- read_excel("E:/data analytics/Machine Learning A-Z/Part 1 - Data Preprocessing/Data.csv")
+View(Data)
+setwd("~/")
+setwd("E:/data analytics/Machine Learning A-Z/Part 1 - Data Preprocessing")
+library(readxl)
+Data <- read_excel("Data.csv")
+View(Data)
+datasets = read.csv("Data.csv")
+dataset = read.csv("Data.csv")
+View(dataset)
+datasets$Age = ifelse(is.na(datasets$Age),ave(datasets$Age, FUN = function(x) mean(x, na.rm = TRUE)), datasets$Age)
+datasets$Salary = ifelse(is.na(datasets$Salary),ave(datasets$Salary, FUN = function(x) mean(x, na.rm = TRUE)), datasets$Salary)
+View(datasets)
+View(datasets)
+# categorical varaiable
+datasets$Country=factor(datasets$Country, levels = c('France','Spain','Germany'), levels = c(1,2,3))
+datasets$Country=factor(datasets$Country,
+levels = c('France','Spain','Germany'),
+levels = c(1,2,3))
+# categorical varaiable
+datasets$Country=factor(datasets$Country,
+levels = c('France','Spain','Germany'),
+labels = c(1,2,3))
+datasets$Purchased=factor(datasets$Purchased,
+levels = c('No','Yes'),
+labels = c(0,1))
+View(datasets)
+#Splitting the Dataset into the Training set and Test set
+install.packages('caTools')
+library("caTools", lib.loc="~/R/win-library/3.4")
+detach("package:caTools", unload=TRUE)
+library(caTools)
+set.seed(123)
+split = sample.split(datasets$Purchased, SplitRatio = 0.8)
+training_set = subset(datasets, split == TRUE)
+test_set = subset(datasets, split == FALSE)
+View(training_set)
+View(training_set)
+View(test_set)
+View(testing_data)
+training_set[,2:3]=scale(training_set[,2:3])
+test_set[,2:3]=scale(test_set[,2:3])
+View(testing_data)
+View(testing_data)
+View(test_set)
+View(test_set)
+View(training_set)
+View(training_set)
+setwd("~/")
+setwd("E:/data analytics/Machine Learning A-Z/Part 2 - Regression/Section 4 - Simple Linear Regression")
+library(readxl)
+Salary_Data <- read_excel("Salary_Data.csv")
+View(Salary_Data)
+library(readxl)
+dataset <- read.csv("Data.csv")
+dataset <- read.csv("E:/data analytics/Machine Learning A-Z/Part 2 - Regression/Section 4 - Simple Linear Regression")
+library(readxl)
+setwd("E:/data analytics/Machine Learning A-Z/Part 2 - Regression/Section 4 - Simple Linear Regression")
+library(readxl)
+Salary_Data <- read_excel("Salary_Data.csv")
+View(Salary_Data)
+setwd("~/")
+setwd("E:/data analytics/Machine Learning A-Z/Part 2 - Regression/Section 4 - Simple Linear Regression")
+library(readxl)
+Salary_Data <- read_excel("Salary_Data.csv")
+View(Salary_Data)
+dataset <- read.csv("E:/data analytics/Machine Learning A-Z/Part 2 - Regression/Section 4 - Simple Linear Regression/Salary_Data")

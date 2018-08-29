@@ -1,0 +1,11 @@
+help(predict.lm)
+# confidence interval range
+confint(regressor,level = .99)
+# to derive confidence interval and prediction interval of linear model----complicated in multiple linear model
+predict.lm(regressor,Salary_Data,interval = "predict", level = .99)
+# to find lower and upper bound value(confidence interval have narrow interval then prediction because additional level of uncertinity)
+predict.lm(regressor,Salary_Data,interval = "confidence", level = .99)
+#-----------------------------------------
+# for one YearExperience
+newdata = data.frame(YearsExperience=3.0)
+predict.lm(regressor,newdata,interval = "predict", level = .99)

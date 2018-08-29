@@ -1,0 +1,344 @@
+#--------------------------------------------------------------------
+# Marginal Histogram / Boxplot visulization
+install.packages(ggExtra)
+#----------------------------------------------------------------------------------
+# Animated Bubble chart visulization
+install.packages("cowplot")
+install.packages("gganimate")
+# ggMarginal(g, type = "density", fill="transparent")
+#-----------------------------------------------------------------------
+library(devtools)
+#--------------------------------------------------------------------
+# Marginal Histogram / Boxplot visulization
+install.packages(ggExtra)
+#--------------------------------------------------------------------
+# Marginal Histogram / Boxplot visulization
+install.packages(ggextra)
+#--------------------------------------------------------------------
+# Marginal Histogram / Boxplot visulization
+install.packages(ggExtra)
+library(ggplot2)
+library(ggExtra)
+#--------------------------------------------------------------------
+# Marginal Histogram / Boxplot visulization
+install.packages("ggExtra")
+library(ggplot2)
+library(ggExtra)
+library(ggMarginal)
+#--------------------------------------------------------------------
+# Marginal Histogram / Boxplot visulization
+install.packages("ggMarginal")
+library(ggMarginal)
+#--------------------------------------------------------------------
+# Marginal Histogram / Boxplot visulization
+install.packages("ggMarginal")
+queue <- factor(c("f", "m", "m", "f", "m", "f", "f", "f"))
+library(tseries)
+runs.test(queue, alternative="greater")
+runs.test(queue, alternative="less")
+runs.test(queue, alternative="two.sided")
+View(cv)
+View(mpg)
+#run test
+#runs.test(x, exact = FALSE, alternative = c("two.sided", "less", "greater"))
+queue <- mpg$displ
+library(tseries)
+runs.test(queue, alternative="two.sided")
+#run test
+#runs.test(x, exact = FALSE, alternative = c("two.sided", "less", "greater"))
+queue <- factor(mpg$displ)
+runs.test(queue, alternative="two.sided")
+View(get_pred)
+View(data_all)
+durbinWatsonTest(lm(pred ~ ., data=data_all))
+library(car)
+install.packages("car")
+library(car)
+durbinWatsonTest(lm(pred ~ ., data=data_all))
+library(lmtest)
+install.packages("lmtest")
+library(lmtest)
+dwtest(lm(pred ~ ., data=data_all))
+bgtest(pred ~ ., data=data_all)
+coeftest(bgtest(pred ~ ., data=data_all))
+bgtest(lm(pred ~ ., data=data_all))
+coeftest(bgtest(lm(pred ~ ., data=data_all))
+bgtest(lm(pred ~ .,order = 1, data=data_all))
+bgtest(lm(pred ~ .,order = 1, data=data_all))
+bgtest(lm(pred ~ .,order = 4, data=data_all))
+bgtest(lm(pred ~ .,data=data_all))
+coeftest(bgtest(lm(pred ~ ., data=data_all)))
+l
+fm <- lm(pred ~ ., data=data_all)
+## Newey & West (1994) compute this type of estimator
+NeweyWest(fm)
+## fit investment equation
+library(NeweyWest)
+## fit investment equation
+install.packages("NeweyWest")
+library(NeweyWest)
+fm <- lm(pred ~ ., data=data_all)
+library(NeweyWest)
+## Newey & West (1994) compute this type of estimator
+NeweyWest(fm)
+## fit investment equation
+install.packages("sandwich")
+library(sandwich)
+fm <- lm(pred ~ ., data=data_all)
+## Newey & West (1994) compute this type of estimator
+NeweyWest(fm)
+## The Newey & West (1987) estimator requires specification
+## of the lag and suppression of prewhitening
+NeweyWest(fm, lag = 4, prewhite = FALSE)
+## bwNeweyWest() can also be passed to kernHAC(), e.g.
+## for the quadratic spectral kernel
+kernHAC(fm, bw = bwNeweyWest)
+library(readxl)
+TrainExer1_1 <- read_excel("C:/Users/Ami Laddani/Desktop/Econometrics Methods and Applications/simple regression_motivation_1.1/TrainExer1.1.xls")
+View(TrainExer1_1)
+hist_age <- TrainExer1.1$Age
+hist_age <- TrainExer1_1$Age
+hist(hist_age)
+library(readxl)
+MEAN_HOURLY_WAGE_BY_EDUCATION <- read_excel("C:/Users/Ami Laddani/Desktop/kurtosis and skewness/MEAN HOURLY WAGE BY EDUCATION.xlsx")
+View(MEAN_HOURLY_WAGE_BY_EDUCATION)
+# kuryosis
+> library(e1071)                    # load e1071
+# kuryosis
+library(e1071)                    # load e1071
+wage_test = MEAN HOURLY WAGE BY EDUCATION$wage     # wage test function
+wage_test = MEAN_HOURLY_WAGE_BY_EDUCATION$wage     # wage test function
+kurtosis(wage_test)   # apply the kurtosis function
+skewness(wage_test)
+summary(wage_test)
+plot(density(MEAN_HOURLY_WAGE_BY_EDUCATION$wage))
+hist(MEAN_HOURLY_WAGE_BY_EDUCATION$wage, breaks=100)
+qqnorm(MEAN_HOURLY_WAGE_BY_EDUCATION$wage)
+qqline(MEAN_HOURLY_WAGE_BY_EDUCATION)
+qqline(MEAN_HOURLY_WAGE_BY_EDUCATION$wage)
+plot(density(MEAN_HOURLY_WAGE_BY_EDUCATION$wage))
+qplot(wage_test, geom = 'histogram', binwidth = 2) + xlab('wage_test')
+library(ggplot2)
+qplot(wage_test, geom = 'histogram', binwidth = 2) + xlab('wage_test')
+jarque.bera.test(wage_test)
+install.packages("normtest")
+library(normtest)
+jarque.bera.test(wage_test)
+jarque.bera.norm.test(wage_test)
+jb.norm.test(wage_test)
+X
+x
+x <- list(1, "a", TRUE, 1 + 4i)
+x
+> x <- 1:3
+x <- 1:3
+y <- 10:12
+cbind(x, y)
+dim(m) <- c(2, 5)
+m <- 1:10
+dim(m) <- c(2, 5)
+m <- 1:10
+dim(m) <- c(2, 5)
+m
+x <- factor(c("yes", "yes", "no", "yes", "no"),
+levels = c("yes", "no"))
+x
+x <- factor(c("yes", "yes", "no", "yes", "no"),
+levels = c("a", "b"))
+x
+x <- factor(c("yes", "yes", "no", "yes", "no"),
+levels = c("yes", "no"))
+x
+table(x)
+unclass(x)
+x <- matrix(1:4, 2, 2); y <- matrix(rep(10, 4), 2, 2)
+x * y
+x %*% y
+data(cars)
+# Box plot
+boxplot(price ~ type, data=cars, xlab="Type", ylab="Price")
+View(cars)
+data(mpg)
+data(MPG)
+library(readxl)
+ravens_data <- read_excel("E:/download/swirl_courses-master/Regression_Models/Binary_Outcomes/ravens_data.csv")
+View(ravens_data)
+library(readxl)
+ravens_data <- read_excel("E:/download/swirl_courses-master/Regression_Models/Binary_Outcomes/ravens_data.csv")
+View(ravens_data)
+library(readxl)
+max_sample_size <- 500
+mean_vec <- rep(0, max_sample_size)
+summary(mean_vec)
+mean_vec
+for (n in 1:max_sample_size) {
+values <- sample(h95[Hc_data$SA95==1 & Hc_data$h95<90], n)
+mean_vec[n] <- mean(values)
+}
+max_sample_size <- 500
+mean_vec <- rep(0, max_sample_size)
+for (n in 1:max_sample_size) {
+values <- sample(h95[Hc_data$SA95==1 & Hc_data$h95<90], n)
+mean_vec[n] <- mean(values)
+}
+plot(seq(1,max_sample_size), mean_vec, xlab="Sample size", ylab="Sample mean")
+abline(h=mu, col="red")
+detach(Hc_data)
+set.seed(807060)
+x <- sample(0:1, 10000, repl=T)
+s <- cumsum(x); r <- s/(1:n)
+plot(r, ylim=c(.01, .60), type=”l”)
+lines(c(0,n), c(.50,.50),col=”red”)
+round(cbind(x,s,r), 5)[1:10,]; r[n]
+plot(r, ylim=c(.01, .60), type=”l”)
+#setting a parameters of Bi(n, p)
+n <- 1000
+p <- 0.4
+#dataframe
+df <- data.frame(bi = rbinom(n, 1, p)  ,count = 0, mean = 0)
+ifelse(df$bi[1] == 1, df[1, 2:3] <- 1, 0)
+for (i in 2 : n){
+df$count[i] <- ifelse(df$bi[i] == 1, df$count[i]<-df$count[i - 1]+1, df$count[i - 1])
+df$mean[i] <- df$count[i] / i
+}
+#graph
+plot(df$mean, type='l',
+main = "Simulation of the Low of Large Numbers",
+xlab="Numbers", ylab="Sample mean")
+abline(h = p, col="red")
+library(readxl)
+Book1 <- read_excel("C:/Users/Ami Laddani/Desktop/Book1.xlsx")
+View(Book1)
+setwd("~/")
+install.packages('caTools')
+library(caTools)
+set.seed(123)
+regressor = lm(formula = y ~ x,
+data = Book1)
+regressor
+setwd("C:/Users/Ami Laddani/Desktop/New Text Document (2)/Machine Learning A-Z/Part 1.2 - test")
+library(readxl)
+Salary_Data <- read.csv("C:/Users/Ami Laddani/Desktop/New Text Document (2)/Machine Learning A-Z/Part 2 - Regression/Section 4 - Simple Linear Regression/Salary_Data.csv")
+View(Salary_Data)
+#help(resid)
+regressor.lm = lm(formula = Salary ~ YearsExperience,
+data = Salary_Data)
+regressor.res= resid(regressor.lm)
+#Residual = y- ^y
+summery(regressor.res)
+#Residual = y- ^y
+summary(regressor.res)
+plot(Salary_Data$YearsExperience, regressor.res,
+ylab="Residuals", xlab="YearsExperience",
+main="Salary_Data")
+abline(0, 0) # the horizon
+#Residual = y- ^y
+eruption.stdres = rstandard(regressor.lm)
+plot(Salary_Data$YearsExperience, eruption.stdres,
+ylab="Residuals", xlab="YearsExperience",
+main="Salary_Data")
+abline(0, 0) # the horizon
+#Residual = y- ^y
+qqnorm(eruption.stdres,
+ylab="Standardized Residuals",
+xlab="Normal Scores",
+main="Old Faithful Eruptions")
+qqline(eruption.stdres)
+regressor.stdres = rstandard(regressor.lm)#standard residual
+#Residual = y- ^y
+qqnorm(regressor.stdres,
+ylab="Standardized Residuals",
+xlab="Normal Scores",
+main="Old Faithful Eruptions")
+qqline(eruption.stdres)
+#Residual = y- ^y
+qqnorm(regressor.stdres,
+ylab="Standardized Residuals",
+xlab="Normal Scores",
+main="Old Faithful Eruptions")
+qqline(regressor.stdres)
+#t-test
+t.test(Salary~YearsExperience)
+# Importing the dataset
+dataset = read.csv('Salary_Data.csv')
+# Simple Linear Regression
+install.packages("excel")
+# Importing the dataset
+dataset = read.csv('Salary_Data.csv')
+setwd("C:/Users/Ami Laddani/Desktop/New Text Document (2)/Machine Learning A-Z/Part 2 - Regression/Section 4 - Simple Linear Regression")
+# Importing the dataset
+dataset = read.csv('Salary_Data.csv')
+#t-test
+t.test(Salary~YearsExperience)
+View(Salary_Data)
+Salary
+data(Salary)
+# Splitting the dataset into the Training set and Test set
+# install.packages('caTools')
+library(caTools)
+set.seed(123)
+#t-test
+t.test(Salary~YearsExperience)
+#t-test
+t.test(Salary~YearsExperience, data = Salary_Data)
+data(Salary)
+regressor = lm(formula = Salary ~ YearsExperience,
+data = Salary_Data)
+#t-test
+t.test(Salary~YearsExperience, data = Salary_Data)
+# Importing the dataset
+dataset = read.csv('Salary_Data.csv')
+#t-test
+t.test(Salary~YearsExperience, data = dataset)
+#t-test
+t.test(dataset,Salary~YearsExperience)
+setwd("C:/Users/Ami Laddani/Desktop/New Text Document (2)/Machine Learning A-Z/Part 2 - Regression/Section 5 - Multiple Linear Regression")
+library(readxl)
+X50_Startups <- read.csv("50_Startups.csv")
+View(X50_Startups)
+# Encoding categorical data
+dataset$State = factor(dataset$State,
+levels = c('New York', 'California', 'Florida'),
+labels = c(1, 2, 3))
+# Importing the dataset
+dataset = read.csv('50_Startups.csv')
+# Encoding categorical data
+dataset$State = factor(dataset$State,
+levels = c('New York', 'California', 'Florida'),
+labels = c(1, 2, 3))
+state
+head(state)
+dataset
+regressor = lm(formula = Profit ~ ., data = dataset)
+help(stackloss)
+stackloss
+# wrap the parameters
+newdata = data.frame(Administration=778562,  # wrap the parameters
+Marketing.Spend=206974,
+R.D.Spend=850746)
+predict(regressor, newdata)
+regressor = lm(formula = Profit ~ ., data = dataset)
+# wrap the parameters
+newdata = data.frame(Administration=778562,  # wrap the parameters
+Marketing.Spend=206974,
+R.D.Spend=850746)
+predict(regressor, newdata)
+regressor = lm(formula = Profit ~ R.D.Spend+Administration+Marketing.Spend, data = dataset)
+# wrap the parameters
+newdata = data.frame(Administration=778562,  # wrap the parameters
+Marketing.Spend=206974,
+R.D.Spend=850746)
+predict(regressor, newdata)
+stackloss
+summary(regressor)
+summary(regressor)$r.squared
+summary(stackloss.lm)$adj.r.squared
+summary(regressor)$adj.r.squared
+dbinom(4, size=12, prob=0.2)
+dbinom(0, size=12, prob=0.2) +
++ dbinom(1, size=12, prob=0.2) +
++ dbinom(2, size=12, prob=0.2) +
++ dbinom(3, size=12, prob=0.2) +
++ dbinom(4, size=12, prob=0.2)
+#Alternatively, we can use the cumulative probability function for binomial distribution pbinom.
+pbinom(4, size=12, prob=0.2)

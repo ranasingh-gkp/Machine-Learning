@@ -1,0 +1,512 @@
+g + geom_boxplot(aes(fill=factor(cyl))) +
+theme(axis.text.x = element_text(angle=65, vjust=0.6)) +
+labs(title="Box plot",
+subtitle="City Mileage grouped by Class of vehicle",
+caption="Source: mpg",
+x="Class of Vehicle",
+y="City Mileage")
+# plot
+g <- ggplot(mpg, aes(manufacturer, cty))
+g + geom_boxplot() +
+geom_dotplot(binaxis='y',
+stackdir='center',
+dotsize = .5,
+fill="red") +
+theme(axis.text.x = element_text(angle=65, vjust=0.6)) +
+labs(title="Box plot + Dot plot",
+subtitle="City Mileage vs Class: Each dot represents 1 row in source data",
+caption="Source: mpg",
+x="Class of Vehicle",
+y="City Mileage")
+# plot
+g <- ggplot(mpg, aes(manufacturer, cty))
+g + geom_tufteboxplot() +
+theme(axis.text.x = element_text(angle=65, vjust=0.6)) +
+labs(title="Tufte Styled Boxplot",
+subtitle="City Mileage grouped by Class of vehicle",
+caption="Source: mpg",
+x="Class of Vehicle",
+y="City Mileage")
+#-----------------------------------------------------------------------------------------
+#Tufte Boxplot
+library(ggthemes)
+#-----------------------------------------------------------------------------------------
+#Tufte Boxplot
+install.packages("ggthemes")
+library(ggthemes)
+g + geom_tufteboxplot() +
+theme(axis.text.x = element_text(angle=65, vjust=0.6)) +
+labs(title="Tufte Styled Boxplot",
+subtitle="City Mileage grouped by Class of vehicle",
+caption="Source: mpg",
+x="Class of Vehicle",
+y="City Mileage")
+# plot
+g <- ggplot(mpg, aes(class, cty))
+g + geom_violin() +
+labs(title="Violin plot",
+subtitle="City Mileage vs Class of vehicle",
+caption="Source: mpg",
+x="Class of Vehicle",
+y="City Mileage")
+# Read data
+email_campaign_funnel <- read.csv("https://raw.githubusercontent.com/selva86/datasets/master/email_campaign_funnel.csv")
+View(email_campaign_funnel)
+-1.492762e+07
+# X Axis Breaks and Labels
+brks <- seq(-15000000, 15000000, 5000000)
+lbls = paste0(as.character(c(seq(15, 0, -5), seq(5, 15, 5))), "m")
+# Plot
+ggplot(email_campaign_funnel, aes(x = Stage, y = Users, fill = Gender)) +   # Fill column
+geom_bar(stat = "identity", width = .6) +   # draw the bars
+scale_y_continuous(breaks = brks,   # Breaks
+labels = lbls) + # Labels
+coord_flip() +  # Flip axes
+labs(title="Email Campaign Funnel") +
+theme_tufte() +  # Tufte theme from ggfortify
+theme(plot.title = element_text(hjust = .5),
+axis.ticks = element_blank()) +   # Centre plot title
+scale_fill_brewer(palette = "Dark2")  # Color palette
+#Composition
+#-------------------------------------
+#Pie Chart
+data(mpg)
+library(ggplot2)
+theme_set(theme_classic())
+#Composition
+# Source: Frequency table
+df <- as.data.frame(table(mpg$class))
+View(df)
+View(mpg)
+View(df)
+colnames(df) <- c("class", "freq")
+pie <- ggplot(df, aes(x = "", y=freq, fill = factor(class))) +
+geom_bar(width = 1, stat = "identity") +
+theme(axis.line = element_blank(),
+plot.title = element_text(hjust=0.5)) +
+labs(fill="class",
+x=NULL,
+y=NULL,
+title="Pie Chart of class",
+caption="Source: mpg")
+pie + coord_polar(theta = "y", start=0)
+# Source: Categorical variable.
+# mpg$class
+pie <- ggplot(mpg, aes(x = "", fill = factor(class))) +
+geom_bar(width = 1) +
+theme(axis.line = element_blank(),
+plot.title = element_text(hjust=0.5)) +
+labs(fill="class",
+x=NULL,
+y=NULL,
+title="Pie Chart of class",
+caption="Source: mpg")
+pie + coord_polar(theta = "y", start=0)
+library(treemapify)
+install.packages("treemapify")
+library(treemapify)
+proglangs <- read.csv("https://raw.githubusercontent.com/selva86/datasets/master/proglanguages.csv")
+View(proglangs)
+# plot
+treeMapCoordinates <- treemapify(proglangs,
+area = "value",
+fill = "parent",
+label = "id",
+group = "parent")
+treeMapPlot <- ggplotify(treeMapCoordinates) +
+scale_x_continuous(expand = c(0, 0)) +
+scale_y_continuous(expand = c(0, 0)) +
+scale_fill_brewer(palette = "Dark2")
+library(ggplotify)
+install.packages("ggplotify")
+library(ggplotify)
+install.packages("ggplotify")
+library(treemapify)
+treeMapPlot <- ggplotify(treeMapCoordinates) +
+scale_x_continuous(expand = c(0, 0)) +
+scale_y_continuous(expand = c(0, 0)) +
+scale_fill_brewer(palette = "Dark2")
+print(treeMapPlot)
+#---------------------------------------------------------------------------------
+#Bar chart
+#In order to make a bar chart create bars instead of histogram, you need to do two things.
+#1.Set stat=identity
+#2.Provide both x and y inside aes() where, x is either character or factor and y is numeric.
+# prep frequency table
+data(mpg)
+freqtable <- table(mpg$manufacturer)
+View(mpg)
+df <- as.data.frame.table(freqtable)
+head(df)
+theme_set(theme_classic())
+# Plot
+g <- ggplot(df, aes(Var1, Freq))
+g + geom_bar(stat="identity", width = 0.5, fill="tomato2") +
+labs(title="Bar Chart",
+subtitle="Manufacturer of vehicles",
+caption="Source: Frequency of Manufacturers from 'mpg' dataset") +
+theme(axis.text.x = element_text(angle=65, vjust=0.6))
+# From on a categorical column variable
+g <- ggplot(mpg, aes(manufacturer))
+g + geom_bar(aes(fill=class), width = 0.5) +
+theme(axis.text.x = element_text(angle=65, vjust=0.6)) +
+labs(title="Categorywise Bar Chart",
+subtitle="Manufacturer of vehicles",
+caption="Source: Manufacturers from 'mpg' dataset")
+library(ggfortify)
+#Time Series Plot From a Time Series Object (ts)
+#The ggfortify package allows autoplot to automatically plot directly from a time series object (ts).
+install.packages("ggfortify")
+library(ggfortify)
+theme_set(theme_classic())
+# Plot
+autoplot(AirPassengers) +
+labs(title="AirPassengers") +
+theme(plot.title = element_text(hjust=0.5))
+data(AirPassengers)
+AirPassengers
+data(economics)
+economics
+View(economics)
+theme_set(theme_classic())
+# Allow Default X Axis Labels
+ggplot(economics, aes(x=date)) +
+geom_line(aes(y=returns_perc)) +
+labs(title="Time Series Chart",
+subtitle="Returns Percentage from 'Economics' Dataset",
+caption="Source: Economics",
+y="Returns %")
+library(lubridate)
+install.packages("lubridate")
+theme_set(theme_bw())
+economics_m <- economics[1:24, ]
+# labels and breaks for X axis text
+lbls <- paste0(month.abb[month(economics_m$date)], " ", lubridate::year(economics_m$date))
+brks <- economics_m$date
+View(economics_m)
+# plot
+ggplot(economics_m, aes(x=date)) +
+geom_line(aes(y=returns_perc)) +
+labs(title="Monthly Time Series",
+subtitle="Returns Percentage from Economics Dataset",
+caption="Source: Economics",
+y="Returns %") +  # title and caption
+scale_x_date(labels = lbls,
+breaks = brks) +  # change to monthly ticks and labels
+theme(axis.text.x = element_text(angle = 90, vjust=0.5),  # rotate x axis text
+panel.grid.minor = element_blank())  # turn off minor grid
+# plot
+ggplot(economics_m, aes(x=date)) +
+geom_line(aes(y=psavert)) +
+labs(title="Monthly Time Series",
+subtitle="Returns Percentage from Economics Dataset",
+caption="Source: Economics",
+y="Returns %") +  # title and caption
+scale_x_date(labels = lbls,
+breaks = brks) +  # change to monthly ticks and labels
+theme(axis.text.x = element_text(angle = 90, vjust=0.5),  # rotate x axis text
+panel.grid.minor = element_blank())  # turn off minor grid
+library(lubridate)
+theme_set(theme_bw())
+economics_y <- economics[1:90, ]
+# labels and breaks for X axis text
+brks <- economics_y$date[seq(1, length(economics_y$date), 12)]
+lbls <- lubridate::year(brks)
+# plot
+ggplot(economics_y, aes(x=date)) +
+geom_line(aes(y=returns_perc)) +
+labs(title="Yearly Time Series",
+subtitle="Returns Percentage from Economics Dataset",
+caption="Source: Economics",
+y="Returns %") +  # title and caption
+scale_x_date(labels = lbls,
+breaks = brks) +  # change to monthly ticks and labels
+theme(axis.text.x = element_text(angle = 90, vjust=0.5),  # rotate x axis text
+panel.grid.minor = element_blank())  # turn off minor grid
+# Compute % Returns
+economics$returns_perc <- c(0, diff(economics$psavert)/economics$psavert[-length(economics$psavert)])
+# plot
+ggplot(economics_y, aes(x=date)) +
+geom_line(aes(y=returns_perc)) +
+labs(title="Yearly Time Series",
+subtitle="Returns Percentage from Economics Dataset",
+caption="Source: Economics",
+y="Returns %") +  # title and caption
+scale_x_date(labels = lbls,
+breaks = brks) +  # change to monthly ticks and labels
+theme(axis.text.x = element_text(angle = 90, vjust=0.5),  # rotate x axis text
+panel.grid.minor = element_blank())  # turn off minor grid
+economics$returns_perc <- c(0, diff(economics$psavert)/economics$psavert[-length(economics$psavert)])
+economics_y <- economics[1:90, ]
+# labels and breaks for X axis text
+brks <- economics_y$date[seq(1, length(economics_y$date), 12)]
+lbls <- lubridate::year(brks)
+# plot
+ggplot(economics_y, aes(x=date)) +
+geom_line(aes(y=returns_perc)) +
+labs(title="Yearly Time Series",
+subtitle="Returns Percentage from Economics Dataset",
+caption="Source: Economics",
+y="Returns %") +  # title and caption
+scale_x_date(labels = lbls,
+breaks = brks) +  # change to monthly ticks and labels
+theme(axis.text.x = element_text(angle = 90, vjust=0.5),  # rotate x axis text
+panel.grid.minor = element_blank())  # turn off minor grid
+# Allow Default X Axis Labels
+ggplot(economics, aes(x=date)) +
+geom_line(aes(y=returns_perc)) +
+labs(title="Time Series Chart",
+subtitle="Returns Percentage from 'Economics' Dataset",
+caption="Source: Economics",
+y="Returns %")
+#--------------------------------------------------------------------------------------------
+#Time Series Plot From Long Data Format: Multiple Time Series in Same Dataframe Column
+data(economics_long, package = "ggplot2")
+#--------------------------------------------------------------------------------------------
+#Time Series Plot From Long Data Format: Multiple Time Series in Same Dataframe Column
+data(economics_long, package = "ggplot2")
+head(economics_long)
+View(economics_long)
+library(lubridate)
+theme_set(theme_bw())
+df <- economics_long[economics_long$variable %in% c("psavert", "uempmed"), ]
+View(df)
+df <- df[lubridate::year(df$date) %in% c(1967:1981), ]
+# labels and breaks for X axis text
+brks <- df$date[seq(1, length(df$date), 12)]
+lbls <- lubridate::year(brks)
+# plot
+ggplot(df, aes(x=date)) +
+geom_line(aes(y=value, col=variable)) +
+labs(title="Time Series of Returns Percentage",
+subtitle="Drawn from Long Data format",
+caption="Source: Economics",
+y="Returns %",
+color=NULL) +  # title and caption
+scale_x_date(labels = lbls, breaks = brks) +  # change to monthly ticks and labels
+scale_color_manual(labels = c("psavert", "uempmed"),
+values = c("psavert"="#00ba38", "uempmed"="#f8766d")) +  # line color
+theme(axis.text.x = element_text(angle = 90, vjust=0.5, size = 8),  # rotate x axis text
+panel.grid.minor = element_blank())  # turn off minor gridomics_long)
+df <- economics[, c("date", "psavert", "uempmed")]
+df <- df[lubridate::year(df$date) %in% c(1967:1981), ]
+# labels and breaks for X axis text
+brks <- df$date[seq(1, length(df$date), 12)]
+lbls <- lubridate::year(brks)
+# plot
+ggplot(df, aes(x=date)) +
+geom_line(aes(y=psavert, col="psavert")) +
+geom_line(aes(y=uempmed, col="uempmed")) +
+labs(title="Time Series of Returns Percentage",
+subtitle="Drawn From Wide Data format",
+caption="Source: Economics", y="Returns %") +  # title and caption
+scale_x_date(labels = lbls, breaks = brks) +  # change to monthly ticks and labels
+scale_color_manual(name="",
+values = c("psavert"="#00ba38", "uempmed"="#f8766d")) +  # line color
+theme(panel.grid.minor = element_blank())  # turn off minor grid
+df <- economics[, c("date", "psavert", "uempmed")]
+df <- df[lubridate::year(df$date) %in% c(1967:1981), ]
+# labels and breaks for X axis text
+brks <- df$date[seq(1, length(df$date), 12)]
+lbls <- lubridate::year(brks)
+# plot
+ggplot(df, aes(x=date)) +
+geom_area(aes(y=psavert+uempmed, fill="psavert")) +
+geom_area(aes(y=uempmed, fill="uempmed")) +
+labs(title="Area Chart of Returns Percentage",
+subtitle="From Wide Data format",
+caption="Source: Economics",
+y="Returns %") +  # title and caption
+scale_x_date(labels = lbls, breaks = brks) +  # change to monthly ticks and labels
+scale_fill_manual(name="",
+values = c("psavert"="#00ba38", "uempmed"="#f8766d")) +  # line color
+theme(panel.grid.minor = element_blank())  # turn off minor grid
+#------------------------------------------------------------------------------------------------------------------
+#Slope Chart
+#This is more suitable over a time series when there are very few time points.
+library(dplyr)
+theme_set(theme_classic())
+source_df <- read.csv("https://raw.githubusercontent.com/jkeirstead/r-slopegraph/master/cancer_survival_rates.csv")
+View(source_df)
+# Define functions. Source: https://github.com/jkeirstead/r-slopegraph
+tufte_sort <- function(df, x="year", y="value", group="group", method="tufte", min.space=0.05) {
+## First rename the columns for consistency
+ids <- match(c(x, y, group), names(df))
+df <- df[,ids]
+names(df) <- c("x", "y", "group")
+## Expand grid to ensure every combination has a defined value
+tmp <- expand.grid(x=unique(df$x), group=unique(df$group))
+tmp <- merge(df, tmp, all.y=TRUE)
+df <- mutate(tmp, y=ifelse(is.na(y), 0, y))
+## Cast into a matrix shape and arrange by first column
+require(reshape2)
+tmp <- dcast(df, group ~ x, value.var="y")
+ord <- order(tmp[,2])
+tmp <- tmp[ord,]
+min.space <- min.space*diff(range(tmp[,-1]))
+yshift <- numeric(nrow(tmp))
+## Start at "bottom" row
+## Repeat for rest of the rows until you hit the top
+for (i in 2:nrow(tmp)) {
+## Shift subsequent row up by equal space so gap between
+## two entries is >= minimum
+mat <- as.matrix(tmp[(i-1):i, -1])
+d.min <- min(diff(mat))
+yshift[i] <- ifelse(d.min < min.space, min.space - d.min, 0)
+}
+tmp <- cbind(tmp, yshift=cumsum(yshift))
+scale <- 1
+tmp <- melt(tmp, id=c("group", "yshift"), variable.name="x", value.name="y")
+## Store these gaps in a separate variable so that they can be scaled ypos = a*yshift + y
+tmp <- transform(tmp, ypos=y + scale*yshift)
+return(tmp)
+}
+plot_slopegraph <- function(df) {
+ylabs <- subset(df, x==head(x,1))$group
+yvals <- subset(df, x==head(x,1))$ypos
+fontSize <- 3
+gg <- ggplot(df,aes(x=x,y=ypos)) +
+geom_line(aes(group=group),colour="grey80") +
+geom_point(colour="white",size=8) +
+geom_text(aes(label=y), size=fontSize, family="American Typewriter") +
+scale_y_continuous(name="", breaks=yvals, labels=ylabs)
+return(gg)
+}
+## Prepare data
+df <- tufte_sort(source_df,
+x="year",
+y="value",
+group="group",
+method="tufte",
+min.space=0.05)
+df <- transform(df,
+x=factor(x, levels=c(5,10,15,20),
+labels=c("5 years","10 years","15 years","20 years")),
+y=round(y))
+## Plot
+plot_slopegraph(df) + labs(title="Estimates of % survival rates") +
+theme(axis.title=element_blank(),
+axis.ticks = element_blank(),
+plot.title = element_text(hjust=0.5,
+family = "American Typewriter",
+face="bold"),
+axis.text = element_text(family = "American Typewriter",
+face="bold"))
+library(forecast)
+install.packages("forecast")
+theme_set(theme_classic())
+# Subset data
+nottem_small <- window(nottem, start=c(1920, 1), end=c(1925, 12))  # subset a smaller timewindow
+nottem_small
+# Plot
+ggseasonplot(AirPassengers) + labs(title="Seasonal plot: International Airline Passengers")
+data(AirPassengers)
+# Plot
+ggseasonplot(AirPassengers) + labs(title="Seasonal plot: International Airline Passengers")
+#---------------------------------------------------------------------------------------------------------------
+#Seasonal Plot
+library(ggseasonplot)
+install.packages("ggseasonplot")
+ggseasonplot(nottem_small) + labs(title="Seasonal plot: Air temperatures at Nottingham Castle")
+#Hierarchical Dendrogram
+install.packages("ggdendro")
+library(ggdendro)
+theme_set(theme_bw())
+hc <- hclust(dist(USArrests), "ave")  # hierarchical clustering
+hc <- hclust(dist(USArrests), "ave")  # hierarchical clustering
+hc
+hc
+summary(hc)# plot
+o
+# plot
+ggdendrogram(hc, rotate = TRUE, size = 2)
+head(hc)
+#------------------------------------------------------------------------------
+#Clusters
+# devtools::install_github("hrbrmstr/ggalt")
+library(ggplot2)
+library(ggalt)
+library(ggfortify)
+theme_set(theme_classic())
+# Compute data with principal components ------------------
+df <- iris[c(1, 2, 3, 4)]
+View(df)
+pca_mod <- prcomp(df)  # compute principal components
+# Data frame of principal components ----------------------
+df_pc <- data.frame(pca_mod$x, Species=iris$Species)  # dataframe of principal components
+View(df_pc)
+View(df)
+df_pc_vir <- df_pc[df_pc$Species == "virginica", ]  # df for 'virginica'
+df_pc_set <- df_pc[df_pc$Species == "setosa", ]  # df for 'setosa'
+df_pc_ver <- df_pc[df_pc$Species == "versicolor", ]  # df for 'versicolor'
+View(df_pc_ver)
+View(df_pc_set)
+View(df_pc_vir)
+# Plot ----------------------------------------------------
+ggplot(df_pc, aes(PC1, PC2, col=Species)) +
+geom_point(aes(shape=Species), size=2) +   # draw points
+labs(title="Iris Clustering",
+subtitle="With principal components PC1 and PC2 as X and Y axis",
+caption="Source: Iris") +
+coord_cartesian(xlim = 1.2 * c(min(df_pc$PC1), max(df_pc$PC1)),
+ylim = 1.2 * c(min(df_pc$PC2), max(df_pc$PC2))) +   # change axis limits
+geom_encircle(data = df_pc_vir, aes(x=PC1, y=PC2)) +   # draw circles
+geom_encircle(data = df_pc_set, aes(x=PC1, y=PC2)) +
+geom_encircle(data = df_pc_ver, aes(x=PC1, y=PC2))
+# load packages
+library(ggplot2)
+library(ggmap)
+# Better install the dev versions ----------
+devtools::install_github("dkahle/ggmap")
+install.packages("devtools")
+# Better install the dev versions ----------
+devtools::install_github("dkahle/ggmap")
+devtools::install_github("hrbrmstr/ggalt")
+library(ggmap)
+install.packages("ggmap")
+library(ggmap)
+library(ggalt)
+# Get Chennai's Coordinates --------------------------------
+chennai <-  geocode("Chennai")  # get longitude and latitude
+View(chennai)
+# Get the Map ----------------------------------------------
+# Google Satellite Map
+chennai_ggl_sat_map <- qmap("chennai", zoom=12, source = "google", maptype="satellite")
+# Google Road Map
+chennai_ggl_road_map <- qmap("chennai", zoom=12, source = "google", maptype="roadmap")
+# Google Hybrid Map
+chennai_ggl_hybrid_map <- qmap("chennai", zoom=12, source = "google", maptype="hybrid")
+# Open Street Map
+chennai_osm_map <- qmap("chennai", zoom=12, source = "osm")
+# Get Coordinates for Chennai's Places ---------------------
+chennai_places <- c("Kolathur",
+"Washermanpet",
+"Royapettah",
+"Adyar",
+"Guindy")
+places_loc <- geocode(chennai_places)  # get longitudes and latitudes
+View(places_loc)
+# Plot Open Street Map -------------------------------------
+chennai_osm_map + geom_point(aes(x=lon, y=lat),
+data = places_loc,
+alpha = 0.7,
+size = 7,
+color = "tomato") +
+geom_encircle(aes(x=lon, y=lat),
+data = places_loc, size = 2, color = "blue")
+# Plot Google Road Map -------------------------------------
+chennai_ggl_road_map + geom_point(aes(x=lon, y=lat),
+data = places_loc,
+alpha = 0.7,
+size = 7,
+color = "tomato") +
+geom_encircle(aes(x=lon, y=lat),
+data = places_loc, size = 2, color = "blue")
+# Google Hybrid Map ----------------------------------------
+chennai_ggl_hybrid_map + geom_point(aes(x=lon, y=lat),
+data = places_loc,
+alpha = 0.7,
+size = 7,
+color = "tomato") +
+geom_encircle(aes(x=lon, y=lat),
+data = places_loc, size = 2, color = "blue")
